@@ -18,3 +18,4 @@ int main()
 		cout << z[n] << " " << o[n] << endl;
 	}
 }
+
