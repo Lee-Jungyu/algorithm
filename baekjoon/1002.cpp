@@ -27,3 +27,4 @@ int cal() {
 	else if (dist == r_1 + r_2) return 1;
 	else if (dist < r_1 + r_2) return 2;
 }
+
