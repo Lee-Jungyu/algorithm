@@ -6,3 +6,4 @@ int main() {
 	printf("%.9lf\n", A/B);
 	return 0;
 }
+
