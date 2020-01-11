@@ -101,3 +101,4 @@ vector<int> solution(int m, int n, vector<vector<int>> picture) {
 	answer[1] = max_size_of_one_area;
 	return answer;
 }
+
