@@ -12,3 +12,4 @@ int main()
 		printf("Case #%d: %d + %d = %d\n", t + 1, a, b, a + b);
 	}
 }
+
