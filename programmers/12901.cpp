@@ -14,3 +14,4 @@ string solution(int a, int b) {
     
     return answer[sum%7];
 }
+
