@@ -68,6 +68,7 @@ void dfs(int m, int r, int c, int idx) {
 			}
 		}
 
+		
 		if (minDist > sum) minDist = sum;
 		return;
 	}
