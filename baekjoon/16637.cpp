@@ -78,8 +78,6 @@ void calculate()
 		}
 	}
 
-	
-
 	value = check[0];
 	for (int i = 0; i < opCnt; i++) {
 		if (ocheck[i] == 's') continue;
@@ -103,9 +101,7 @@ void calculate()
 	else
 		if (_max < value) _max = value;
 
-
 }
-
 
 void dfs(int prev, int value)
 {
@@ -145,5 +141,4 @@ int main()
 	input();
 	solution();
 	output();
-	
 }
