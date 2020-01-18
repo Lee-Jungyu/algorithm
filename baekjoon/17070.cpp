@@ -83,6 +83,7 @@ void output()
 	int result = solve();
 	printf("%d\n", result);
 }
+
 int main()
 {
 	input();
