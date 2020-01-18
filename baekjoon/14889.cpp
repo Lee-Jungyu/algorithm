@@ -33,6 +33,7 @@ void solve(int cnt, int n)
 				team[i] = 2;
 			}
 		}
+		
 
 		int team1 = 0;
 		int team2 = 0;
