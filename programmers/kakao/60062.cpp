@@ -13,11 +13,11 @@ bool cmp(int a, int b)
 
 void perm(int n,vector<int> weak, vector<int> dist, int cnt, int idx, bool dir) 
 {
-    //시계방향 체크
     if(cnt == idx) {
         int loc_idx = 0;
         int visited_cnt = 0;
         
+        //시계방향 체크
         if(dir) {
             for(int k = 0; k < cnt; k++) {
                 int rest_dist = dist[k];
@@ -46,6 +46,7 @@ void perm(int n,vector<int> weak, vector<int> dist, int cnt, int idx, bool dir)
                 if(flag) break;
             }
         }
+        
         //반시계방향 체크
         else {
             for(int k = 0; k < cnt; k++) {
