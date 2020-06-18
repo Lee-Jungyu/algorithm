@@ -11,7 +11,7 @@ long long solution(int n, vector<int> times) {
     
     long long _min = times[0];
     long long _max = times[times.size() - 1] * n;
-    long long _tmp = 0;
+    
     while(true) {
         long long _middle = (_min + _max) / 2;
         long long sum = 0;
@@ -22,8 +22,6 @@ long long solution(int n, vector<int> times) {
         
         if(n > sum) _min = _middle + 1;
         else _max = _middle - 1;
-        
-        _tmp = _middle;
     }
     
     return answer;
