@@ -47,5 +47,6 @@ int solution(string s) {
         }
         if (answer > ss.length()) answer = ss.length();
     }
+    
     return answer;
 }
