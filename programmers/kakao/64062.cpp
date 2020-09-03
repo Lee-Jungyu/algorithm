@@ -10,7 +10,6 @@ int solution(vector<int> stones, int k) {
     
     while(true) {
         int mid = (min + max) / 2;
-        
         if(mid == tmp) break;
         tmp = mid;
         
