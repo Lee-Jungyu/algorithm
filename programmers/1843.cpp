@@ -101,4 +101,4 @@ int solution(vector<string> arr)
 }
 
 //정확성 100%
-//효율성 100%
+//효율성 0%
