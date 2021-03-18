@@ -1,71 +1,61 @@
-#include<stdio.h>
+#include <iostream>
+#include <queue>
+#define INF 0x3fffffff
 using namespace std;
 
-int N, M;
-bool road[1001][1001] = {{false,},};
-int map[1001][1001] = {{0,},};
-int value_map[1001][1001] = {{0,}};
-const int q_size = 10000000;
-int q[q_size][2];
-int front = 0;
-int rear = 0;
+int N;
+int map[1001][1001];
+int cost[1001];
+queue<pair<int, int>> q;
 
-int bfs(int source, int destination)
-{
-  q[front % q_size][0] = source;
-  q[front % q_size][1] = 0;
-  front++;
+int dijkstra(int s, int d) {
+	q.push({ s, 0 });
 
-  while(front != rear) {
-    int src = q[rear % q_size][0];
-    int val = q[rear % q_size][1];
-    rear++;
+	while (!q.empty()) {
+		int curr = q.front().first;
+		int sum = q.front().second;
 
-    for(int i = 1; i <= N; i++)
-    {
-      if(!road[src][i]) continue;
+		q.pop();
 
-      if(value_map[source][i] == 0) {
-        value_map[source][i] = val + map[src][i];
+		for (int i = 1; i <= N; i++) {
+			int c = sum + map[curr][i];
+			if (map[curr][i] != INF && cost[i] > c) {
+					cost[i] = c;
+					q.push({ i, c });
+			}
+		}
+	}
 
-        q[front % q_size][0] = i;
-        q[front % q_size][1] = value_map[source][i];
-        front++;
-      }
-      else if(value_map[source][i] > val + map[src][i]) {
-        value_map[source][i] = val + map[src][i];
-
-        q[front % q_size][0] = i;
-        q[front % q_size][1] = value_map[source][i];
-        front++;
-      }
-    }
-
-  }
-  return value_map[source][destination];
+	return cost[d];
 }
 
 int main()
 {
-  int source, destination;
+	ios_base::sync_with_stdio(false);
+	cin.tie(NULL);
+	cout.tie(NULL);
 
-  scanf("%d", &N);
-  scanf("%d", &M);
+	for (int i = 0; i < 1001; i++) {
+		cost[i] = INF;
+		for (int j = 0; j < 1001; j++) {
+			map[i][j] = INF;
+		}
+	}
 
-  for(int i = 0; i < M; i++)
-  {
-    int tmp_source, tmp_destination, tmp_value;
-    scanf("%d %d %d", &tmp_source, &tmp_destination, &tmp_value);
-    
-    if(map[tmp_source][tmp_destination] > tmp_value || !road[tmp_source][tmp_destination])
-      map[tmp_source][tmp_destination] = tmp_value;
-    
-    road[tmp_source][tmp_destination] = true;
-  }
+	cin >> N;
 
-  scanf("%d %d", &source, &destination);
+	int M;
+	cin >> M;
 
-  int result;
-  result = bfs(source, destination);
-  printf("%d\n", result);
+	for (int i = 0; i < M; i++) {
+		int a, b, c;
+		cin >> a >> b >> c;
+		if(map[a][b] > c) map[a][b] = c;
+	}
+
+	int s, d;
+	cin >> s >> d;
+
+	cout << dijkstra(s, d) << "\n";
+
 }
