@@ -6,3 +6,4 @@ WHERE HOST_ID IN (
     GROUP BY HOST_ID
     HAVING COUNT(*) > 1
 );
+
