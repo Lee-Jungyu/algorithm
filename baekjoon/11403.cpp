@@ -7,7 +7,7 @@ int print[100][100];
 bool visited[100];
 int n;
 
-void dfs();
+void bfs();
 int main()
 {
 	cin >> n;
@@ -26,7 +26,7 @@ int main()
 			cin >> arr[i][j];
 		}
 	}
-	dfs();
+	bfs();
 
 	for (int i = 0; i < n; i++)
 	{
@@ -36,7 +36,7 @@ int main()
 	}
 }
 
-void dfs()
+void bfs()
 {
 	queue<int> q;
 	for (int i = 0; i < n; i++) {
